@@ -65,6 +65,19 @@ npm start
 
 A aplicação estará disponível em: `http://localhost:4200`
 
+## 📦 Repositório GitHub
+
+- **URL:** https://github.com/LarissaMFeltrin/ProjetoSnapbot
+- Para fazer push do código, siga as instruções em `GUIA_ENTREGA.md`
+
+## 🌐 Deploy Online
+
+Para informações sobre deploy da aplicação em produção, consulte `GUIA_ENTREGA.md`.
+
+**Aplicação online:** _(A ser configurado após deploy)_
+- Frontend: _(URL do frontend em produção)_
+- Backend: _(URL da API em produção)_
+
 ## 🔐 Credenciais de Teste
 
 - **Email:** admin@snapbot.com
