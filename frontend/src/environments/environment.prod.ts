@@ -1,5 +1,6 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://localhost:8000/api'
+    // A URL será substituída durante o build pelo Render via sed
+    apiUrl: 'RENDER_API_URL_PLACEHOLDER'
 };
 
