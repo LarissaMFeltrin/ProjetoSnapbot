@@ -1,0 +1,58 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ isEditMode ? 'Editar' : 'Novo' }} Dispositivo</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="deviceForm" (ngSubmit)="onSubmit()">
+        <div *ngIf="loading" class="loading-container">
+          <mat-spinner></mat-spinner>
+        </div>
+
+        <div *ngIf="!loading">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nome do Dispositivo</mat-label>
+            <input matInput formControlName="name" required>
+            <mat-icon matPrefix>phone_android</mat-icon>
+            <mat-error *ngIf="deviceForm.get('name')?.hasError('required')">
+              Nome é obrigatório
+            </mat-error>
+            <mat-error *ngIf="deviceForm.get('name')?.hasError('maxlength')">
+              Nome deve ter no máximo 255 caracteres
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Localização</mat-label>
+            <input matInput formControlName="location" required>
+            <mat-icon matPrefix>location_on</mat-icon>
+            <mat-error *ngIf="deviceForm.get('location')?.hasError('required')">
+              Localização é obrigatória
+            </mat-error>
+            <mat-error *ngIf="deviceForm.get('location')?.hasError('maxlength')">
+              Localização deve ter no máximo 255 caracteres
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Data de Compra</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="purchase_date" [max]="maxDate" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="deviceForm.get('purchase_date')?.hasError('required')">
+              Data de compra é obrigatória
+            </mat-error>
+          </mat-form-field>
+
+          <div class="form-actions">
+            <button mat-button type="button" (click)="cancel()">Cancelar</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="deviceForm.invalid || loading">
+              <mat-spinner *ngIf="loading" diameter="20" class="inline-spinner"></mat-spinner>
+              <span *ngIf="!loading">{{ isEditMode ? 'Atualizar' : 'Criar' }}</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

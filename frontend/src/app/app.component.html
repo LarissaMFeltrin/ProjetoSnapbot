@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+    <span>Snapbot</span>
+    <span class="spacer"></span>
+    <ng-container *ngIf="authService.isAuthenticated$ | async">
+        <span>{{ (authService.currentUser$ | async)?.name }}</span>
+        <button mat-button (click)="authService.logout()">
+            <mat-icon>logout</mat-icon>
+            Sair
+        </button>
+    </ng-container>
+</mat-toolbar>
+
+<main>
+    <router-outlet></router-outlet>
+</main>

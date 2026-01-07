@@ -1,0 +1,20 @@
+{
+    "name": "snapbot",
+    "version": "1.0.0",
+    "description": "Snapbot - Gerenciamento de Dispositivos Celulares",
+    "scripts": {
+        "start": "./start.sh",
+        "dev": "./start.sh",
+        "backend": "cd backend && php artisan serve",
+        "frontend": "cd frontend && npm start",
+        "test": "npm --prefix frontend test",
+        "test:frontend": "npm --prefix frontend test"
+    },
+    "keywords": [
+        "snapbot",
+        "laravel",
+        "angular"
+    ],
+    "author": "",
+    "license": "ISC"
+}
