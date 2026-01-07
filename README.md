@@ -188,5 +188,5 @@ snapbot/
 
 ## 👥 Desenvolvido por
 
-Snapbot Gestão e Comunicação LTDA.
+Larissa Feltrin - Projeto p/ Snapbot Gestão e Comunicação LTDA.
 
