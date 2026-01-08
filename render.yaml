@@ -5,8 +5,9 @@ services:
     env: php
     region: sao
     plan: starter
-    buildCommand: cd backend && composer install --no-dev --optimize-autoloader && php artisan key:generate --force && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache
-    startCommand: cd backend && php artisan serve --host=0.0.0.0 --port=$PORT
+    rootDir: backend
+    buildCommand: composer install --no-dev --optimize-autoloader && php -r "if (!file_exists('.env') && file_exists('.env.example')) { copy('.env.example', '.env'); }" && php artisan key:generate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
     healthCheckPath: /up
     envVars:
       - key: APP_ENV
@@ -57,8 +58,9 @@ services:
     env: static
     region: sao
     plan: starter
-    buildCommand: cd frontend && npm ci && npm run build -- --configuration production && node inject-env.js
-    staticPublishPath: frontend/dist/snapbot-frontend
+    rootDir: frontend
+    buildCommand: npm ci && npm run build -- --configuration production && node inject-env.js
+    staticPublishPath: dist/snapbot-frontend
     envVars:
       - key: API_URL
         fromService:
