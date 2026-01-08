@@ -72,9 +72,21 @@ A aplicação estará disponível em: `http://localhost:4200`
 
 ## 🌐 Deploy Online
 
-Para informações sobre deploy da aplicação em produção, consulte `GUIA_ENTREGA.md`.
+### Deploy no Render
 
-**Aplicação online:** _(A ser configurado após deploy)_
+O projeto está configurado para deploy completo no Render. Consulte o guia detalhado em [`DEPLOY_RENDER.md`](DEPLOY_RENDER.md).
+
+**Deploy rápido:**
+1. Conecte seu repositório Git no Render
+2. Use o arquivo `render.yaml` para criar todos os serviços automaticamente
+3. O Render criará automaticamente:
+   - ✅ Backend Laravel (Web Service)
+   - ✅ Frontend Angular (Static Site)
+   - ✅ Banco de dados PostgreSQL
+
+Para informações detalhadas sobre deploy, consulte `DEPLOY_RENDER.md`.
+
+**Aplicação online:** _(Configure após deploy)_
 - Frontend: _(URL do frontend em produção)_
 - Backend: _(URL da API em produção)_
 
